@@ -19,3 +19,11 @@ spec:
           image: dericop/dojoapolo:latest
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: dojoapolo-configmap

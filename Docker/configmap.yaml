@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dojoapolo-configmap
+  namespace: default
+data:
+  application.properties: |
+    spring.application.name=dojo
+    app.name=Daniel
+    app.age=30
