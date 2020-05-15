@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dojoapolo-deployment
+  labels:
+    app: dojoapolo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dojoapolo
+  template:
+    metadata:
+      labels:
+        app: dojoapolo
+    spec:
+      containers:
+        - name: dojoapolo
+          image: dericop/dojoapolo:latest
+          ports:
+            - containerPort: 8080
