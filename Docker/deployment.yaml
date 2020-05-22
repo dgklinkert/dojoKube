@@ -1,29 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dojoapolo-deployment
+name: sve-deployment
   labels:
-    app: dojoapolo
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: dojoapolo
-  template:
-    metadata:
-      labels:
-        app: dojoapolo
-    spec:
-      containers:
-        - name: dojoapolo
-          image: dericop/dojoapolo:latest
-          ports:
-            - containerPort: 8080
-          volumeMounts:
-            - name: config
-              mountPath: /app/config
-              readOnly: true
-      volumes:
-        - name: config
-          configMap:
-            name: dojoapolo-configmap
+    app: apolo
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        pod: sve-pod
+    template:
+      metadata:
+        labels:
+          app: apolo
+          pod: sve-pod
+      spec:
+        containers:
+          - name: sve-container
+            image: dericop/dojoapolo:latest
+            resources:
+              requests:
+                memory: "300Mi"
+                cpu: "250m"
+              limits:
+                memory: "500Mi"
+                cpu: "800m"
+            ports:
+              - containerPort: 8080
+            volumeMounts:
+              - name: config
+                mountPath: /app/config
+                readOnly: true
+        volumes:
+          - name: config
+            configMap:
+              name: sve-configmap
