@@ -1,30 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: sve-deployment
+  name: sve-deployment
   labels:
     app: apolo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      pod: sve-pod
+      app: apolo
   template:
     metadata:
       labels:
         app: apolo
-        pod: sve-pod
     spec:
       containers:
         - name: sve-container
           image: daagiral/daagiral:latest
-          resources:
-            requests:
-              memory: "300Mi"
-              cpu: "250m"
-            limits:
-              memory: "500Mi"
-              cpu: "800m"
           ports:
             - containerPort: 8080
           volumeMounts:
