@@ -1,4 +1,5 @@
-FROM adoptopenjdk/openjdk11-openj9:jre-11.0.7_10_openj9-0.20.0-alpine
+FROM openjdk8-openj9:x86_64-alpine-jdk8u212-b03_openj9-0.14.0-slim
+
 
 LABEL version="1.0"
 LABEL description="sve-apolo.jar"
