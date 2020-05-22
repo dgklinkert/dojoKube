@@ -4,7 +4,7 @@ metadata:
   name: sve-configmap
   namespace: default
 data:
-  application.properties: |
+  application.properties: |-
     spring.application.name=AW036001
     spring.redis.url=redis://localhost:3213
     apolo.sve.redisDurationSeconds=1200
