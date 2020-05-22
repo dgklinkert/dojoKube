@@ -4,14 +4,14 @@ metadata:
   name: sve-configmap
   namespace: default
 data:
-  application.properties: |-
-    spring.application.name=AW036001
-    spring.redis.url=redis://localhost:3213
-    apolo.sve.redisDurationSeconds=1200
-    apolo.sve.name.secret=apolo-dev
-    apolo.sve.name.region=us-east-1
-    apolo.sve.hostname.apiconnect=https://api.us
-    apolo.sve.hostname.col=https://virtualesqa.apps
-    apolo.sve.hostname.fil=https://e-banking.apps
-    apolo.sve.apiconnect.scope=Customer-products:read:user
-    env=LOCAL
+  application.yaml: |-
+    spring.application.name: AW036001
+    spring.redis.url: redis://localhost:3213
+    apolo.sve.redisDurationSeconds: 1200
+    apolo.sve.name.secret: apolo-dev
+    apolo.sve.name.region: us-east-1
+    apolo.sve.hostname.apiconnect: https://api.us
+    apolo.sve.hostname.col: https://virtualesqa.apps
+    apolo.sve.hostname.fil: https://e-banking.apps
+    apolo.sve.apiconnect.scope: Customer-products:read:user
+    env: LOCAL
