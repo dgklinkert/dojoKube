@@ -17,7 +17,7 @@ name: sve-deployment
       spec:
         containers:
           - name: sve-container
-            image: dericop/dojoapolo:latest
+            image: daagiral/daagiral:latest
             resources:
               requests:
                 memory: "300Mi"
