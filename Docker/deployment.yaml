@@ -4,34 +4,34 @@ metadata:
 name: sve-deployment
   labels:
     app: apolo
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: sve-pod
+  template:
+    metadata:
+      labels:
+        app: apolo
         pod: sve-pod
-    template:
-      metadata:
-        labels:
-          app: apolo
-          pod: sve-pod
-      spec:
-        containers:
-          - name: sve-container
-            image: daagiral/daagiral:latest
-            resources:
-              requests:
-                memory: "300Mi"
-                cpu: "250m"
-              limits:
-                memory: "500Mi"
-                cpu: "800m"
-            ports:
-              - containerPort: 8080
-            volumeMounts:
-              - name: config
-                mountPath: /app/config
-                readOnly: true
-        volumes:
-          - name: config
-            configMap:
-              name: sve-configmap
+    spec:
+      containers:
+        - name: sve-container
+          image: daagiral/daagiral:latest
+          resources:
+            requests:
+              memory: "300Mi"
+              cpu: "250m"
+            limits:
+              memory: "500Mi"
+              cpu: "800m"
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: sve-configmap
