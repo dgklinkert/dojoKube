@@ -1,4 +1,4 @@
-FROM openjdk8-openj9:x86_64-alpine-jdk8u212-b03_openj9-0.14.0-slim
+FROM adoptopenjdk/openjdk8-openj9:x86_64-alpine-jdk8u212-b03_openj9-0.14.0-slim
 
 
 LABEL version="1.0"
