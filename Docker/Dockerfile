@@ -1,6 +1,5 @@
 FROM adoptopenjdk/openjdk8-openj9:x86_64-alpine-jdk8u212-b03_openj9-0.14.0-slim
-
-
+WORKDIR /app
 LABEL version="1.0"
 LABEL description="sve-apolo.jar"
 
