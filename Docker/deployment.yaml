@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sve-deployment
+  namespace: default
   labels:
     app: apolo
 spec:
@@ -19,7 +20,7 @@ spec:
           image: daagiral/daagiral:latest
           volumeMounts:
             - name: config
-              mountPath: /deployments/config
+              mountPath: /app/config
               readOnly: true
           ports:
             - containerPort: 8080
@@ -27,6 +28,3 @@ spec:
         - name: config
           configMap:
             name: sve-configmap
-            items:
-              - key: application.properties
-                path: application.properties
