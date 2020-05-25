@@ -22,3 +22,14 @@ spec:
                 name: sve-configmap
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - name: config
+              mountPath: /deployments/config
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: sve-configmap
+            items:
+              - key: application.properti
+                path: application.properties
