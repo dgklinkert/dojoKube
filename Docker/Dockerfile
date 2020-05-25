@@ -8,7 +8,7 @@ COPY *.jar app.jar
 EXPOSE 8080
 
 
-ENV JAVA_OPTS="-Dfile.encoding=UTF8  -XX:+UseContainerSupport  -Djava.security.egd=file:/dev/./urandom"
-ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar /app/app.jar"]
-#ENTRYPOINT java -jar app.jar -g 'daemon off;'
+#ENV JAVA_OPTS="-Dfile.encoding=UTF8  -XX:+UseContainerSupport  -Djava.security.egd=file:/dev/./urandom"
+#ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar /app/app.jar"]
+ENTRYPOINT java -jar -Dfile.encoding=UTF8  -XX:+UseContainerSupport  -Djava.security.egd=file:/dev/./urandom app.jar -g 'daemon off;'
 
