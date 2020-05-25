@@ -21,7 +21,7 @@ spec:
             - containerPort: 8080
           volumeMounts:
             - name: config
-              mountPath: /app/classes
+              mountPath: /app-services/classes
               readOnly: true
       volumes:
         - name: config
