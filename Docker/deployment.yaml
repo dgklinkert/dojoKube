@@ -17,13 +17,8 @@ spec:
       containers:
         - name: sve-container
           image: daagiral/daagiral:latest
+          envFrom:
+            - configMapRef:
+                name: sve-configmap
           ports:
             - containerPort: 8080
-          volumeMounts:
-            - name: config
-              mountPath: /app-service
-              readOnly: true
-      volumes:
-        - name: config
-          configMap:
-            name: sve-configmap
